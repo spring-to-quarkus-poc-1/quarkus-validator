@@ -14,4 +14,9 @@ public class ExceptionMappers {
         return RestResponse.status(Response.Status.NOT_FOUND, new ExceptionResponse("Unknown Cheese: " + x.getName(), "XPTO-1"));
     }
 
+    @ServerExceptionMapper
+    public RestResponse<ExceptionResponse> mapException(NullPointerException x) {
+        return RestResponse.status(Response.Status.NOT_FOUND, new ExceptionResponse(x.getMessage(), "XPTO-3"));
+    }
+
 }
